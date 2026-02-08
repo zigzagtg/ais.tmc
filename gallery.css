@@ -1,0 +1,255 @@
+
+
+
+/* Basic reset for margin and padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #fffefe;
+}
+
+/* Header (Navbar) Styling */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fffefdd2;
+  border-bottom: 1px solid rgba(11, 11, 11, 0.06);
+  backdrop-filter: saturate(120%) blur(6px);
+  padding: 20px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Brand Logo and Name */
+.brand {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  object-fit: cover;
+}
+
+.brand-text {
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #FFD54F;
+  margin-left: 8px;
+}
+
+/* Navigation Menu */
+.site-nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-list a {
+  color: #0b72ff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #0b72ff 0%, #6faaff 65%, #FFD54F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hover and focus states for navigation links */
+.nav-list a:hover,
+.nav-list a:focus {
+  background: linear-gradient(90deg, #074bb3 0%, #4f86ff 60%, #FFD54F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  outline: none;
+}
+
+/* Mobile Toggle Button (hamburger) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  color: #0b0b0b;
+}
+
+/* Screen Reader Only Class (for accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .site-nav {
+      display: none;
+  }
+  
+  .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+  }
+  
+  .site-nav.is-open {
+      display: block;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  
+  .nav-list {
+      flex-direction: column;
+      padding: 12px 16px;
+      gap: 8px;
+  }
+}
+/* Gallery Header */
+.gallery-header {
+  padding: 50px 0;
+  background-color: #f4c430;
+  text-align: center;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #5767fb;
+}
+
+.gallery-header p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+
+/* Gallery Section */
+.gallery {
+  padding: 30px 0;
+}
+
+/* CSS Grid for Gallery Layout */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 items per row by default */
+  gap: 20px;  /* Gap between items */
+}
+
+.col-lg-4,
+.col-md-6 {
+  padding: 10px;
+}
+
+/* Ensure the gallery items are responsive */
+@media (max-width: 768px) {
+  .row {
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+      grid-template-columns: 1fr; /* 1 item per row on small screens */
+  }
+}
+
+/* Gallery Item Styling */
+.gallery-item {
+  position: relative;
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer.site-footer {
+  background:rgba(36, 98, 205, 0.855);
+  margin-top: 3rem;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer.site-footer p {
+  margin: 0;
+  font-size: 14px;
+}

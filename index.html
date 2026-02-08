@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Media Club</title>
+    <meta name="description" content="Media Club — creative media projects, galleries, and events.">
+    <meta name="keywords" content="media, gallery, events, film, photography">
+    <meta name="author" content="Media Club">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="canonical" href="https://example.com/">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="brand" aria-label="Media Club home">
+                <img src="./images/logo.png" alt="Media Club logo" class="brand-logo" width="40" height="40">
+                <span class="brand-text">T.M.C</span>
+            </a>
+
+            <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">
+                <span class="sr-only">Menu</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                </svg>
+            </button>
+
+            <nav id="site-navigation" class="site-nav" role="navigation">
+                <ul class="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+                <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container hero-inner">
+                <h1 class="hero-title">Creative media, bold ideas</h1>
+                <p class="hero-sub">Showcasing projects, galleries and events from Media Club.</p>
+                <p class="hero-ctas">
+                    <a href="#" class="btn btn-primary">Explore Projects</a>
+                    <a href="gallery.html" class="btn btn-ghost">View Gallery</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+
+    <div class="tutorial-section">
+        <h2>Basic Camera Usage Tutorial</h2>
+        <div class="content">
+          <p>Welcome to our quick tutorial on using a camera! Whether you're using a DSLR, a smartphone, or a point-and-shoot, these basic tips will help you get started on taking amazing photos.</p>
+    
+          <h3>1. Setting Up Your Camera</h3>
+          <div class="placeholder">[Placeholder for Camera Setup Image]</div>
+          <ul class="steps">
+            <li><strong>Charge your battery:</strong> Make sure your camera is ready to go with a full charge.</li>
+            <li><strong>Insert the memory card:</strong> Don’t forget to insert a compatible memory card to save your photos!</li>
+            <li><strong>Choose your shooting mode:</strong> Set your camera to the mode that best suits your shoot, like Auto or Manual.</li>
+          </ul>
+
+          <h3>2. Photography Tips</h3>
+          <div class="placeholder">[Placeholder for Photography Tips Image]</div>
+          <ul class="steps">
+            <li><strong>Lighting:</strong> Natural light is your friend! Try to shoot in well-lit areas or during golden hour for the best results.</li>
+            <li><strong>Stabilize the camera:</strong> Keep your hands steady or use a tripod to prevent blurry photos.</li>
+            <li><strong>Focus:</strong> Make sure your subject is in focus, especially if you’re using manual focus on a DSLR.</li>
+          </ul>
+        </div>
+      </div>
+    
+
+    <script>
+        (function(){
+            const btn = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('site-navigation');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function(){
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                nav.classList.toggle('is-open');
+            });
+        })();
+    </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

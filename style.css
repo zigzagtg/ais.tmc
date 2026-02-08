@@ -1,0 +1,123 @@
+/* Basic reset */
+*{box-sizing:border-box;
+  margin:0;
+  padding:0}
+
+
+
+
+
+body{
+  font-family: "Google Sans", sans-serif;
+  color:#0b0b0b;
+  background:#fffefe
+}
+
+.container{max-width:1100px;
+  margin:0 auto;
+  padding:0 16px}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;
+  z-index:50;background:#fffefdd2;
+  border-bottom:1px solid rgba(11,11,11,0.06);
+  backdrop-filter:saturate(120%) blur(6px)
+}
+
+.header-inner{display:flex;
+  align-items:center;
+  justify-content:space-between;height:64px}
+
+
+.brand{
+  display:flex;align-items:center;
+  gap:10px;color:inherit;text-decoration:none}
+.brand-logo{display:block;width:40px;height:40px;background:#ffffff;border-radius:50%;padding:6px;box-shadow:0 1px 2px rgba(0,0,0,0.06);object-fit:cover;overflow:hidden}
+.brand-text{font-weight:900;font-size:1.6rem;display:inline-block;letter-spacing:0.4px;background:linear-gradient(90deg,#0b72ff 0%,#FFD54F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0.3px rgba(11,11,11,0.06)}
+
+/* Nav */
+.site-nav{display:flex}
+.nav-list{display:flex;gap:20px;list-style:none}
+.nav-list a{color:#0b72ff;text-decoration:none;padding:8px 6px;border-radius:6px;font-weight:600;background:linear-gradient(90deg,#0b72ff 0%,#6faaff 65%,#FFD54F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-list a:hover,.nav-list a:focus{background:linear-gradient(90deg,#074bb3 0%,#4f86ff 60%,#FFD54F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;outline:none}
+
+/* Toggle button (mobile) */
+.nav-toggle{display:none;background:transparent;border:0;padding:8px;border-radius:6px;cursor:pointer}
+.nav-toggle svg{color:#0b0b0b}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Responsive */
+@media (max-width:800px){
+  .nav-toggle{display:inline-flex;align-items:center}
+  .site-nav{position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid rgba(0,0,0,0.06);transform-origin:top;max-height:0;overflow:hidden;transition:max-height 220ms ease}
+  .site-nav.is-open{max-height:320px}
+  .nav-list{flex-direction:column;padding:12px 16px;gap:8px}
+}
+
+/* Utility */
+a:focus{outline:2px solid #cbd5e1;outline-offset:2px}
+
+/* Hero / Banner */
+.hero{position:relative;display:flex;align-items:center;min-height:calc(100vh - 64px);background-image:url('images/banner.PNG');background-size:cover;background-position:center;color:#fff}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.55));pointer-events:none;}
+.hero-inner{position:relative;padding:64px 26px 64px 66px;z-index:2}
+.hero-title{font-size:clamp(1.5rem,4vw,3rem);line-height:1.05;margin-bottom:0.5rem;font-weight:700}
+.hero-sub{font-size:1.05rem;opacity:0.95;margin-bottom:1rem}
+.hero-ctas{display:flex;gap:12px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:600}
+.btn-primary{background:#0b72ff;color:#fff}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.24)}
+.btn:hover{filter:brightness(0.95)}
+
+@media (max-width:800px){
+  .hero{min-height:48vh}
+  .hero-inner{padding:40px 16px 40px 24px}
+  .brand-text{font-size:1.2rem}
+  .hero-ctas{flex-direction:column;align-items:start}
+}
+
+/* oLeft-align hero content: keep max-width but pin to left edge */
+.hero .container{max-width:1100px;margin-left:0;margin-right:auto;padding-left:16px;padding-right:16px}
+
+
+.tutorial-section {
+  background-color: #f2f0f0;
+  margin: 30px auto;
+  padding: 30px;
+  margin-top: 8rem;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.tutorial-section h2 {
+  color: #457ac4;
+  font-size: 28px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.tutorial-section .content {
+  line-height: 1.8;
+  font-size: 18px;
+}
+.tutorial-section .placeholder {
+  background-color: #ddd;
+  height: 200px;
+  width: 100%;
+  text-align: center;
+  line-height: 200px;
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 20px;
+}
+.tutorial-section .steps {
+  list-style-type: none;
+  padding-left: 0;
+}
+.tutorial-section .steps li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
