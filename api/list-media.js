@@ -21,9 +21,9 @@ export default async function handler(req, res) {
     const data = await s3.send(command);
 
     // Map keys to public URLs
-    const urls = data.Contents.map(
-      (obj) => `${process.env.R2_ENDPOINT}/${process.env.R2_BUCKET_NAME}/${obj.Key}`
-    );
+   const urls = (data.Contents || []).map(
+  (obj) => `${process.env.R2_ENDPOINT}/${process.env.R2_BUCKET_NAME}/${obj.Key}`
+);
 
     // Return JSON array
     res.status(200).json(urls);
