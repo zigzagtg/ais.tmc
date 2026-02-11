@@ -121,3 +121,14 @@ a:focus{outline:2px solid #cbd5e1;outline-offset:2px}
   font-size: 18px;
   margin-bottom: 10px;
 }
+
+.page-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    background:rgba(50, 121, 243, 0.909);
+  }
+
+.execs h1{
+  color: rgba(255, 255, 0, 1)
+}
