@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-  // Map Backblaze folders to HTML div IDs
+  // Map HTML div IDs to Backblaze folders
   const sections = [
     { id: "sec1", folder: "Section 1/" },
     { id: "sec2", folder: "Section 2/" },
@@ -9,17 +9,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec5", folder: "Section 5/" }
   ];
 
-  // Load each section sequentially
+  // Load all galleries sequentially
   for (const section of sections) {
     await loadGallery(section.id, section.folder);
   }
 
-  // Initialize GLightbox after all galleries are populated
-  const lightbox = GLightbox({
+  // Initialize GLightbox after all galleries are loaded
+  GLightbox({
     selector: '.glightbox',
     touchNavigation: true,
     loop: true,
-    download: true // enables toolbar download inside lightbox
+    download: true // download button inside lightbox
   });
 });
 
@@ -31,10 +31,10 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-    // Encode folder name to handle spaces
+    // Encode folder for URL (handles spaces)
     const encodedFolder = encodeURIComponent(folder);
 
-    // Fetch files from API with folder prefix
+    // Fetch images for this folder from your API
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -43,22 +43,25 @@ async function loadGallery(divId, folder) {
       return;
     }
 
+    // Append each image to the gallery div
     files.forEach(url => {
       const a = document.createElement('a');
       a.href = url;
       a.className = 'glightbox';
-      a.dataset.type = url.match(/\.(mp4|webm|ogg)$/i) ? 'video' : 'image';
+      a.dataset.type = 'image';
       a.dataset.downloadUrl = url; // download inside lightbox
 
-      const el = url.match(/\.(mp4|webm|ogg)$/i)
-        ? Object.assign(document.createElement('video'), { src: url, controls: true, width: 250 })
-        : Object.assign(document.createElement('img'), { src: url, width: 250 });
+      const img = document.createElement('img');
+      img.src = url;
+      img.style.width = '250px'; // consistent width
+      img.style.height = 'auto';
+      img.style.margin = '5px'; // spacing between images
 
-      a.appendChild(el);
+      a.appendChild(img);
       galleryDiv.appendChild(a);
     });
 
   } catch (err) {
-    console.error("Failed to load media for folder:", folder, err);
+    console.error(`Failed to load media for folder "${folder}":`, err);
   }
 }
