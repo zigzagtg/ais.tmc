@@ -1,8 +1,6 @@
-// gallery-loader.js
-
 document.addEventListener("DOMContentLoaded", async () => {
 
-  // Map your section names to their HTML div IDs
+  // Map Backblaze folders to HTML div IDs
   const sections = [
     { id: "sec1", folder: "Section 1/" },
     { id: "sec2", folder: "Section 2/" },
@@ -11,13 +9,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec5", folder: "Section 5/" }
   ];
 
-  // Loop through each section
+  // Load each section sequentially
   for (const section of sections) {
     await loadGallery(section.id, section.folder);
   }
 
-  // Initialize GLightbox AFTER all galleries are populated
-  const lightbox = GLightbox({ selector: '.glightbox' });
+  // Initialize GLightbox after all galleries are populated
+  const lightbox = GLightbox({
+    selector: '.glightbox',
+    touchNavigation: true,
+    loop: true,
+    download: true // enables toolbar download inside lightbox
+  });
 });
 
 async function loadGallery(divId, folder) {
@@ -28,8 +31,11 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-    // Fetch files from your API, passing the folder prefix
-    const res = await fetch(`/api/list-media?prefix=${encodeURIComponent(folder)}`);
+    // Encode folder name to handle spaces
+    const encodedFolder = encodeURIComponent(folder);
+
+    // Fetch files from API with folder prefix
+    const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
     if (!files || files.length === 0) {
@@ -38,32 +44,18 @@ async function loadGallery(divId, folder) {
     }
 
     files.forEach(url => {
-      const container = document.createElement('div');
-      container.className = 'media-item';
-
-      // Create clickable element for GLightbox
       const a = document.createElement('a');
       a.href = url;
       a.className = 'glightbox';
       a.dataset.type = url.match(/\.(mp4|webm|ogg)$/i) ? 'video' : 'image';
+      a.dataset.downloadUrl = url; // download inside lightbox
 
-      // Create image or video element
-      const el = url.match(/\.(mp4|webm|ogg)$/i) 
-        ? Object.assign(document.createElement('video'), { src: url, controls: true })
-        : Object.assign(document.createElement('img'), { src: url });
+      const el = url.match(/\.(mp4|webm|ogg)$/i)
+        ? Object.assign(document.createElement('video'), { src: url, controls: true, width: 250 })
+        : Object.assign(document.createElement('img'), { src: url, width: 250 });
 
       a.appendChild(el);
-
-      // Download button
-      const download = document.createElement('a');
-      download.href = url;
-      download.download = '';
-      download.textContent = 'Download';
-      download.className = 'download-btn';
-
-      container.appendChild(a);
-      container.appendChild(download);
-      galleryDiv.appendChild(container);
+      galleryDiv.appendChild(a);
     });
 
   } catch (err) {
