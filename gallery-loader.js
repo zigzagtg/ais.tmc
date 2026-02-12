@@ -1,3 +1,4 @@
+// gallery-loader.js
 document.addEventListener("DOMContentLoaded", async () => {
 
   // Map HTML div IDs to Backblaze folders
@@ -9,54 +10,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec5", folder: "Section 5/" }
   ];
 
-  // Load all galleries sequentially
+  // Load all galleries
   for (const section of sections) {
     await loadGallery(section.id, section.folder);
   }
 
-  // === Initialize GLightbox with custom Download button ===
+  // Initialize GLightbox (default behavior)
   GLightbox({
     selector: '.glightbox',
     loop: true,
     touchNavigation: true,
     openEffect: 'zoom',
-    closeEffect: 'fade',
-    onSlideAfterLoad: function (slide) {
-      // Remove old button if exists
-      const existingBtn = slide.container.querySelector('.custom-download-btn');
-      if (existingBtn) existingBtn.remove();
-
-      // Create visible Download button
-      const btn = document.createElement('button');
-      btn.innerText = 'Download';
-      btn.className = 'custom-download-btn';
-
-      // Style the button top-right inside lightbox
-      Object.assign(btn.style, {
-        position: 'absolute',
-        top: '15px',
-        right: '15px',
-        padding: '8px 12px',
-        fontSize: '14px',
-        backgroundColor: '#fff',
-        border: '1px solid #333',
-        borderRadius: '4px',
-        cursor: 'pointer',
-        zIndex: 9999
-      });
-
-      // Force download on click
-      btn.addEventListener('click', () => {
-        const a = document.createElement('a');
-        a.href = slide.node.href; // the image URL
-        a.download = slide.node.href.split('/').pop(); // filename
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      });
-
-      slide.container.appendChild(btn);
-    }
+    closeEffect: 'fade'
   });
 });
 
@@ -72,7 +37,7 @@ async function loadGallery(divId, folder) {
     // Encode folder for fetch URL (handles spaces)
     const encodedFolder = encodeURIComponent(folder);
 
-    // Fetch images from your API
+    // Fetch images from API
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -87,7 +52,6 @@ async function loadGallery(divId, folder) {
       a.href = url;
       a.className = 'glightbox';
       a.dataset.type = 'image';
-      a.dataset.downloadUrl = url;
 
       const img = document.createElement('img');
       img.src = url;
