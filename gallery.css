@@ -198,32 +198,21 @@ body {
 
 /* Gallery container */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* responsive columns */
-  grid-auto-rows: 10px;       /* base row height for masonry effect */
-  grid-gap: 15px;             /* spacing between images */
-  margin-bottom: 40px;        /* spacing between sections */
-  grid-auto-flow: dense;      /* fill gaps for a masonry look */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-/* Images inside the gallery */
-.gallery img {
-  width: 100%;   /* fills the grid column */
-  height: auto;  /* keeps natural aspect ratio */
-  display: block;
-  border-radius: 6px;
-  margin: 0;     /* avoid extra spacing */
+.gallery img{
+  width: 250px;   /* consistent width */
+  height: auto;   /* maintain aspect ratio */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Makes each image occupy the correct number of rows in the masonry */
-.gallery a {
-  display: block;
+.gallery img:hover {
+  transform: scale(1.05); /* subtle hover zoom */
 }
-
-.gallery img {
-  grid-row-end: span 1; /* this will be updated dynamically */
-}
-
 
 .media-item {
   display: flex;
