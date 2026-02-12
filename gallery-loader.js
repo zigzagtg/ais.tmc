@@ -23,10 +23,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     closeEffect: 'fade'
   });
 
-  // === After images load, apply masonry row spans ===
-  resizeMasonry();
-  window.addEventListener('resize', resizeMasonry);
-});
 
 // Fetch and display images for a section
 async function loadGallery(divId, folder) {
@@ -69,16 +65,4 @@ async function loadGallery(divId, folder) {
     console.error(`Failed to load media for folder "${folder}":`, err);
   }
 }
-
-// Masonry layout adjustment
-function resizeMasonry() {
-  const galleries = document.querySelectorAll('.gallery');
-  galleries.forEach(gallery => {
-    const rowHeight = parseInt(getComputedStyle(gallery).getPropertyValue('grid-auto-rows'));
-    const rowGap = parseInt(getComputedStyle(gallery).getPropertyValue('grid-gap'));
-    gallery.querySelectorAll('img').forEach(img => {
-      const rowSpan = Math.ceil((img.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-      img.style.gridRowEnd = `span ${rowSpan}`;
-    });
-  });
-}
+});
