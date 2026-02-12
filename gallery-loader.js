@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadGallery(section.id, section.folder);
   }
 
-  // Initialize GLightbox with custom download button
+  // === Initialize GLightbox with custom Download button ===
   GLightbox({
     selector: '.glightbox',
     loop: true,
@@ -22,29 +22,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     openEffect: 'zoom',
     closeEffect: 'fade',
     onSlideAfterLoad: function (slide) {
-      // Remove old button if it exists
+      // Remove old button if exists
       const existingBtn = slide.container.querySelector('.custom-download-btn');
       if (existingBtn) existingBtn.remove();
 
-      // Create download button
+      // Create visible Download button
       const btn = document.createElement('button');
       btn.innerText = 'Download';
       btn.className = 'custom-download-btn';
-      btn.style.position = 'absolute';
-      btn.style.top = '10px';
-      btn.style.right = '10px';
-      btn.style.padding = '6px 10px';
-      btn.style.backgroundColor = '#fff';
-      btn.style.border = '1px solid #333';
-      btn.style.borderRadius = '4px';
-      btn.style.cursor = 'pointer';
-      btn.style.zIndex = 9999;
 
-      // Force download when clicked
+      // Style the button top-right inside lightbox
+      Object.assign(btn.style, {
+        position: 'absolute',
+        top: '15px',
+        right: '15px',
+        padding: '8px 12px',
+        fontSize: '14px',
+        backgroundColor: '#fff',
+        border: '1px solid #333',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        zIndex: 9999
+      });
+
+      // Force download on click
       btn.addEventListener('click', () => {
         const a = document.createElement('a');
-        a.href = slide.node.href;
-        a.download = slide.node.href.split('/').pop(); // optional: sets filename
+        a.href = slide.node.href; // the image URL
+        a.download = slide.node.href.split('/').pop(); // filename
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -88,7 +93,7 @@ async function loadGallery(divId, folder) {
       img.src = url;
       img.style.width = '250px'; // consistent width
       img.style.height = 'auto';
-      img.style.margin = '5px'; // spacing between images
+      img.style.margin = '5px'; // spacing
 
       a.appendChild(img);
       galleryDiv.appendChild(a);
