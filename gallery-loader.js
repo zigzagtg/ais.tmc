@@ -1,4 +1,3 @@
-// gallery-loader.js
 document.addEventListener("DOMContentLoaded", async () => {
 
   // Map HTML div IDs to Backblaze folders
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadGallery(section.id, section.folder);
   }
 
-  // Initialize GLightbox (default behavior)
+  // === Initialize GLightbox (default) ===
   GLightbox({
     selector: '.glightbox',
     loop: true,
@@ -23,9 +22,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     openEffect: 'zoom',
     closeEffect: 'fade'
   });
+
+  // === After images load, apply masonry row spans ===
+  resizeMasonry();
+  window.addEventListener('resize', resizeMasonry);
 });
 
-// Function to fetch and display images for a section
+// Fetch and display images for a section
 async function loadGallery(divId, folder) {
   const galleryDiv = document.getElementById(divId);
   if (!galleryDiv) {
@@ -34,10 +37,7 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-    // Encode folder for fetch URL (handles spaces)
     const encodedFolder = encodeURIComponent(folder);
-
-    // Fetch images from API
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -46,7 +46,6 @@ async function loadGallery(divId, folder) {
       return;
     }
 
-    // Append each image to the gallery div
     files.forEach(url => {
       const a = document.createElement('a');
       a.href = url;
@@ -55,9 +54,12 @@ async function loadGallery(divId, folder) {
 
       const img = document.createElement('img');
       img.src = url;
-      img.style.width = '250px'; // consistent width
-      img.style.height = 'auto';
-      img.style.margin = '5px'; // spacing
+      img.style.width = '100%';   // responsive
+      img.style.height = 'auto';  // natural ratio
+      img.style.display = 'block';
+      img.style.borderRadius = '6px';
+      img.style.margin = '0';
+      img.style.transition = 'transform 0.3s ease'; // hover zoom
 
       a.appendChild(img);
       galleryDiv.appendChild(a);
@@ -66,4 +68,17 @@ async function loadGallery(divId, folder) {
   } catch (err) {
     console.error(`Failed to load media for folder "${folder}":`, err);
   }
+}
+
+// Masonry layout adjustment
+function resizeMasonry() {
+  const galleries = document.querySelectorAll('.gallery');
+  galleries.forEach(gallery => {
+    const rowHeight = parseInt(getComputedStyle(gallery).getPropertyValue('grid-auto-rows'));
+    const rowGap = parseInt(getComputedStyle(gallery).getPropertyValue('grid-gap'));
+    gallery.querySelectorAll('img').forEach(img => {
+      const rowSpan = Math.ceil((img.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+      img.style.gridRowEnd = `span ${rowSpan}`;
+    });
+  });
 }
