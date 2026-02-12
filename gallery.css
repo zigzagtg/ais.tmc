@@ -196,22 +196,17 @@ body {
 }
 
 
-/* Gallery container */
 .gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.gallery img{
+.gallery img, .gallery video {
   width: 250px;   /* consistent width */
   height: auto;   /* maintain aspect ratio */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.gallery img:hover {
-  transform: scale(1.05); /* subtle hover zoom */
 }
 
 .media-item {
