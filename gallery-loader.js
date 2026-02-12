@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadGallery(section.id, section.folder);
   }
 
-  // === Initialize GLightbox (default) ===
+  // Initialize GLightbox (default behavior)
   GLightbox({
     selector: '.glightbox',
     loop: true,
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     openEffect: 'zoom',
     closeEffect: 'fade'
   });
+});
 
-
-// Fetch and display images for a section
+// Function to fetch and display images for a section
 async function loadGallery(divId, folder) {
   const galleryDiv = document.getElementById(divId);
   if (!galleryDiv) {
@@ -33,7 +33,10 @@ async function loadGallery(divId, folder) {
   }
 
   try {
+    // Encode folder for fetch URL (handles spaces)
     const encodedFolder = encodeURIComponent(folder);
+
+    // Fetch images from API
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -42,6 +45,7 @@ async function loadGallery(divId, folder) {
       return;
     }
 
+    // Append each image to the gallery div
     files.forEach(url => {
       const a = document.createElement('a');
       a.href = url;
@@ -50,12 +54,9 @@ async function loadGallery(divId, folder) {
 
       const img = document.createElement('img');
       img.src = url;
-      img.style.width = '100%';   // responsive
-      img.style.height = 'auto';  // natural ratio
-      img.style.display = 'block';
-      img.style.borderRadius = '6px';
-      img.style.margin = '0';
-      img.style.transition = 'transform 0.3s ease'; // hover zoom
+      img.style.width = '250px'; // consistent width
+      img.style.height = 'auto';
+      img.style.margin = '5px'; // spacing
 
       a.appendChild(img);
       galleryDiv.appendChild(a);
@@ -65,4 +66,3 @@ async function loadGallery(divId, folder) {
     console.error(`Failed to load media for folder "${folder}":`, err);
   }
 }
-});
