@@ -200,6 +200,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .gallery img, .gallery video {
@@ -298,6 +299,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 #gallery img, #gallery video {
