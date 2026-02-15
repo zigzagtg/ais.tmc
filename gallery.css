@@ -320,3 +320,34 @@ footer.site-footer p {
   margin: 0;
   font-size: 14px;
 }
+
+
+/* Masonry / Pinterest-style gallery */
+.gallery {
+  column-count: 4;
+  column-gap: 16px;
+}
+
+.gallery a {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.gallery img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 992px) {
+  .gallery { column-count: 3; }
+}
+
+@media (max-width: 768px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 480px) {
+  .gallery { column-count: 1; }
+}
+
