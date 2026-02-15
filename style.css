@@ -59,7 +59,7 @@ body{
 a:focus{outline:2px solid #cbd5e1;outline-offset:2px}
 
 /* Hero / Banner */
-.hero{position:relative;display:flex;align-items:center;min-height:calc(100vh - 64px);background-image:url('images/banner.PNG');background-size:cover;background-position:center;color:#fff}
+.hero{position:relative;display:flex;align-items:center;min-height:calc(100vh - 64px);background-image:url('images/acsetup1.jpg');background-size:cover;background-position:center;color:#fff}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.55));pointer-events:none;}
 .hero-inner{position:relative;padding:64px 26px 64px 66px;z-index:2}
 .hero-title{font-size:clamp(1.5rem,4vw,3rem);line-height:1.05;margin-bottom:0.5rem;font-weight:700}
