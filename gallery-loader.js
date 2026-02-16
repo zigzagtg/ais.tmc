@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-// Function to fetch and display images for a section
+// Video detection helper (added only for video support)
+function isVideo(url) {
+  return /\.(mp4|mov|webm|ogg)$/i.test(url);
+}
+
+// Function to fetch and display media for a section
 async function loadGallery(divId, folder) {
   const galleryDiv = document.getElementById(divId);
   if (!galleryDiv) {
@@ -35,7 +40,7 @@ async function loadGallery(divId, folder) {
     // Encode folder for fetch URL (handles spaces)
     const encodedFolder = encodeURIComponent(folder);
 
-    // Fetch images from API
+    // Fetch media from API
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -44,20 +49,38 @@ async function loadGallery(divId, folder) {
       return;
     }
 
-    // Append each image to the gallery div
+    // Append each media item to the gallery div
     files.forEach(url => {
       const a = document.createElement('a');
       a.href = url;
       a.className = 'glightbox';
-      a.dataset.type = 'image';
 
-      const img = document.createElement('img');
-      img.src = url;
-      img.style.width = '250px'; // consistent width
-      img.style.height = 'auto';
-      img.style.margin = '5px'; // spacing
+      if (isVideo(url)) {
+        a.dataset.type = 'video';
 
-      a.appendChild(img);
+        const video = document.createElement('video');
+        video.src = url;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.playsInline = true;
+
+        video.style.width = '250px';
+        video.style.margin = '5px';
+
+        a.appendChild(video);
+      } else {
+        a.dataset.type = 'image';
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.width = '250px';
+        img.style.height = 'auto';
+        img.style.margin = '5px';
+
+        a.appendChild(img);
+      }
+
       galleryDiv.appendChild(a);
     });
 
