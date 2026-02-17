@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec2", folder: "Section 2/" },
     { id: "sec3", folder: "Section 3/" },
     { id: "sec4", folder: "Section 4/" },
+    { id: "sec5", folder: "Section 5/" },
   ];
 
   // Load all galleries
