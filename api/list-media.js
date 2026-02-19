@@ -38,17 +38,19 @@ export default async function handler(req, res) {
     } while (continuationToken);
 
     // Build properly encoded URLs
-    const urls = allObjects.map(obj => {
-      return `${process.env.PUBLIC_BASE_URL}/${obj.Key
-        .split("/")
-        .map(encodeURIComponent)
-        .join("/")}`;
-    });
+const urls = allObjects
+  .filter(obj => obj.Key && !obj.Key.endsWith("/")) 
+  .map(obj => {
+    return `${process.env.PUBLIC_BASE_URL}/${obj.Key
+      .split("/")
+      .map(encodeURIComponent)
+      .join("/")}`;
+  });
 
     // Optional lightweight caching (5 minutes)
     res.setHeader(
       "Cache-Control",
-      "s-maxage=300, stale-while-revalidate"
+      "s-maxage=60, stale-while-revalidate"
     );
 
     res.status(200).json(urls);
