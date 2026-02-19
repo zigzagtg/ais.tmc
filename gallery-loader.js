@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-  // Map HTML div IDs to Backblaze folders
+  // Map HTML div IDs to gallery sections
   const sections = [
     { id: "sec1", folder: "Section 1/" },
     { id: "sec2", folder: "Section 2/" },
@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec6", folder: "Section 6/" },
   ];
 
-  // Load all galleries
+  // Load all galleries sequentially
   for (const section of sections) {
     await loadGallery(section.id, section.folder);
   }
 
-  // Initialize GLightbox (default behavior)
+  // Initialize GLightbox after all images/videos are loaded
   GLightbox({
     selector: '.glightbox',
     loop: true,
@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-// Video detection helper (added only for video support)
+// Video detection helper
 function isVideo(url) {
   return /\.(mp4|mov|webm|ogg)$/i.test(url);
 }
 
-// Function to fetch and display media for a section
+// Load gallery media for a section
 async function loadGallery(divId, folder) {
   const galleryDiv = document.getElementById(divId);
   if (!galleryDiv) {
@@ -39,10 +39,10 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-    // Encode folder for fetch URL (handles spaces)
+    // Encode folder for fetch URL
     const encodedFolder = encodeURIComponent(folder);
 
-    // Fetch media from API
+    // Fetch media from Vercel API (which pulls from Worker KV)
     const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
     const files = await res.json();
 
@@ -51,7 +51,7 @@ async function loadGallery(divId, folder) {
       return;
     }
 
-    // Append each media item to the gallery div
+    // Append each media item
     files.forEach(url => {
       const a = document.createElement('a');
       a.href = url;

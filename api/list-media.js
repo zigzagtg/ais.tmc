@@ -1,38 +1,23 @@
 // /api/list-media.js
-import { S3Client, ListObjectsV2Command } from "@aws-sdk/client-s3";
-
 export default async function handler(req, res) {
+  const folderPrefix = req.query.prefix || ""; // e.g., "Section 1/"
+
   try {
-    // Get folder prefix from query string
-    const folderPrefix = req.query.prefix || ""; // e.g., "Section 1/"
+    // Fetch the KV-updated list from the Worker
+    const kvUrl = process.env.WORKER_DOMAIN + "/media-list.json";
+    const kvResponse = await fetch(kvUrl);
+    const mediaList = await kvResponse.json();
 
-    // Initialize S3 client for Backblaze B2
-    const s3 = new S3Client({
-      endpoint: process.env.B2_ENDPOINT, // e.g., "https://s3.us-east-005.backblazeb2.com"
-      region: "us-east-005",
-      credentials: {
-        accessKeyId: process.env.B2_KEY_ID,    // your Backblaze key ID
-        secretAccessKey: process.env.B2_APP_KEY // your Backblaze application key
-      },
-    });
+    // Filter by folder prefix (keeps old folder structure compatible)
+    const filtered = mediaList.filter(url => url.includes(folderPrefix));
 
-    // List objects in the bucket for this folder prefix
-    const command = new ListObjectsV2Command({
-      Bucket: process.env.B2_BUCKET_NAME,
-      Prefix: folderPrefix // keep spaces as-is
-    });
+    // Cache on Vercel edge (optional)
+    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate");
 
-    const data = await s3.send(command);
-
-    // Map each object to a public URL
-    const urls = (data.Contents || []).map(
-      obj => `${process.env.PUBLIC_BASE_URL}/${obj.Key}` // e.g., PUBLIC_BASE_URL = https://<bucket>.s3.us-east-005.backblazeb2.com
-    );
-
-    res.status(200).json(urls);
+    res.status(200).json(filtered);
 
   } catch (err) {
-    console.error("Error listing media:", err);
-    res.status(500).json({ error: "Failed to list media" });
+    console.error("Error fetching media list from KV:", err);
+    res.status(500).json({ error: "Failed to fetch media" });
   }
 }
