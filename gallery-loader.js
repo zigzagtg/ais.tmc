@@ -42,14 +42,14 @@ async function loadGallery(divId, folder) {
     // Encode folder for fetch URL
     const encodedFolder = encodeURIComponent(folder);
 
-    // Fetch media from Vercel API (which pulls from Worker KV)
-    const res = await fetch(`/api/list-media?prefix=${encodedFolder}`);
-    const files = await res.json();
+ // Fetch media from API
+const res = await fetch(`/api/list-media?prefix=${folder}`);
+const files = await res.json();
 
-    if (!files || files.length === 0) {
-      console.warn(`No files returned for folder: ${folder}`);
-      return;
-    }
+if (!files || files.length === 0) {
+  console.warn(`No files returned for folder: ${folder}`);
+  return;
+}
 
     // Append each media item
     files.forEach(url => {
