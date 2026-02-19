@@ -47,11 +47,9 @@ const urls = allObjects
       .join("/")}`;
   });
 
-    // Optional lightweight caching (5 minutes)
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=1, stale-while-revalidate"
-    );
+   res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
 
     res.status(200).json(urls);
 
