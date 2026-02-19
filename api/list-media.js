@@ -39,7 +39,7 @@ export default async function handler(req, res) {
 
     // Build properly encoded URLs
     const urls = allObjects.map(obj => {
-      return `${process.env.R2_PUBLIC_BASE_URL}/${obj.Key
+      return `${process.env.PUBLIC_BASE_URL}/${obj.Key
         .split("/")
         .map(encodeURIComponent)
         .join("/")}`;
