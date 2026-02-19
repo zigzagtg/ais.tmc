@@ -50,7 +50,7 @@ const urls = allObjects
     // Optional lightweight caching (5 minutes)
     res.setHeader(
       "Cache-Control",
-      "s-maxage=60, stale-while-revalidate"
+      "s-maxage=1, stale-while-revalidate"
     );
 
     res.status(200).json(urls);
