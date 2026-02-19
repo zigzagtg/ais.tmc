@@ -3,19 +3,15 @@ export default async function handler(req, res) {
 
   try {
     const kvUrl = process.env.WORKER_DOMAIN + "/media-list.json";
-    console.log("Fetching from KV URL:", kvUrl);
-
     const kvResponse = await fetch(kvUrl);
-
-    if (!kvResponse.ok) {
-      console.error("KV fetch failed:", kvResponse.status, kvResponse.statusText);
-      return res.status(500).json({ error: "Failed to fetch media from KV" });
-    }
-
     const mediaList = await kvResponse.json();
-    console.log("Media list length:", mediaList.length);
 
-    const filtered = mediaList.filter(url => url.includes(folderPrefix));
+    // NORMALIZE folder name for URL matching
+    const normalizedPrefix = folderPrefix.replace(/ /g, "%20").replace(/\/$/, "");
+    const filtered = mediaList.filter(url => {
+      const path = new URL(url).pathname.replace(/\/$/, "");
+      return path.includes(normalizedPrefix);
+    });
 
     res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate");
     res.status(200).json(filtered);
