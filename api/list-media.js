@@ -7,6 +7,7 @@ export default async function handler(req, res) {
     const s3 = new S3Client({
       endpoint: process.env.R2_ENDPOINT,
       region: "auto",
+      forcePathStyle: true,
       credentials: {
         accessKeyId: process.env.R2_KEY_ID,
         secretAccessKey: process.env.R2_APP_KEY,
