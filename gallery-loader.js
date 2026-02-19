@@ -39,7 +39,7 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-const res = await fetch(`/api/list-media?prefix=${folder}`);
+const res = await fetch(`/api/list-media?prefix=${folder}&_=${Date.now()}`);
 const files = await res.json();
 
 if (!files || files.length === 0) {
