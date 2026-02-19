@@ -36,8 +36,13 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-const res = await fetch(`/api/list-media?prefix=${folder}&_=${Date.now()}`);
-const files = await res.json();
+let files = [];
+if (window.preloadedGallery && window.preloadedGallery[folder]) {
+  files = window.preloadedGallery[folder];
+} else {
+  const res = await fetch(`/api/list-media?prefix=${folder}`);
+  files = await res.json();
+}
 
 if (!files || files.length === 0) {
   console.warn(`No files returned for folder: ${folder}`);
