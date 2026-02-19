@@ -39,10 +39,6 @@ async function loadGallery(divId, folder) {
   }
 
   try {
-    // Encode folder for fetch URL
-    const encodedFolder = encodeURIComponent(folder);
-
- // Fetch media from API
 const res = await fetch(`/api/list-media?prefix=${folder}`);
 const files = await res.json();
 
