@@ -10,10 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     { id: "sec6", folder: "Section 6/" },
   ];
 
-  // Load all galleries sequentially
-  for (const section of sections) {
-    await loadGallery(section.id, section.folder);
-  }
+   await Promise.all(sections.map(section => loadGallery(section.id, section.folder)));
 
   // Initialize GLightbox after all images/videos are loaded
   GLightbox({
