@@ -1,20 +1,22 @@
 export default async function handler(req, res) {
-  const folderPrefix = req.query.prefix || "";
-
   try {
-    const kvUrl = process.env.WORKER_DOMAIN + "/media-list.json";
-    const kvResponse = await fetch(kvUrl);
+    const folderPrefixRaw = req.query.prefix || "";  // e.g., "Section 4/"
+    const folderPrefix = folderPrefixRaw.trim().replace(/\/$/, "");
+
+    // Fetch media list from Worker KV
+    const kvResponse = await fetch(process.env.WORKER_DOMAIN + "/media-list.json");
     const mediaList = await kvResponse.json();
 
-    // NORMALIZE folder name for URL matching
-    const normalizedPrefix = folderPrefix.replace(/ /g, "%20").replace(/\/$/, "");
+    // Filter by folder (normalize %2F)
     const filtered = mediaList.filter(url => {
-      const path = new URL(url).pathname.replace(/\/$/, "");
-      return path.includes(normalizedPrefix);
+      const path = decodeURIComponent(url).replace(/^https?:\/\/[^/]+\/?/, ""); // remove domain
+      return path.startsWith(folderPrefix);
     });
 
-    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate");
-    res.status(200).json(filtered);
+    // Fix URLs for front-end: convert %2F back to real slash
+    const urls = filtered.map(url => url.replace(/%2F/g, "/"));
+
+    res.status(200).json(urls);
 
   } catch (err) {
     console.error("Error fetching media list from KV:", err);
