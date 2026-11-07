@@ -1,4 +1,4 @@
-
+javascript
 const galleryImages = {
   // SECTION 1
   sec1: [
@@ -53,21 +53,21 @@ const galleryImages = {
     "photo_2026-02-13_12-59-53.jpg"
   ],
 
- // SECTION 3
-sec3: [
-  "photo_2026-01-23_22-50-25.jpg",
-  "photo_2026-01-23_22-55-20.jpg",
-  "photo_2026-01-23_22-55-21.jpg",
-  "photo_2026-01-23_23-04-20.jpg",
-  "photo_2026-02-13_13-01-17.jpg",
-  "photo_2026-02-13_13-01-24.jpg",
-  "photo_2026-02-13_13-01-30.jpg",
-  "photo_2026-02-13_13-01-31.jpg",
-  "photo_2026-02-13_13-01-37.jpg",
-  "photo_2026-02-13_13-01-40.jpg",
-  "photo_2026-02-13_13-01-43.jpg",
-  "photo_2026-02-13_13-01-46.jpg"
-],
+  // SECTION 3
+  sec3: [
+    "photo_2026-01-23_22-50-25.jpg",
+    "photo_2026-01-23_22-55-20.jpg",
+    "photo_2026-01-23_22-55-21.jpg",
+    "photo_2026-01-23_23-04-20.jpg",
+    "photo_2026-02-13_13-01-17.jpg",
+    "photo_2026-02-13_13-01-24.jpg",
+    "photo_2026-02-13_13-01-30.jpg",
+    "photo_2026-02-13_13-01-31.jpg",
+    "photo_2026-02-13_13-01-37.jpg",
+    "photo_2026-02-13_13-01-40.jpg",
+    "photo_2026-02-13_13-01-43.jpg",
+    "photo_2026-02-13_13-01-46.jpg"
+  ],
 
   // SECTION 4
   sec4: [
@@ -146,10 +146,16 @@ sec3: [
 
 
 // =========================
-// AUTOMATIC GALLERY GENERATOR
+// CLOUDFLARE IMAGE SETTINGS
 // =========================
 
 const baseURL = "https://media.aismediaclub.com";
+const transformBase = "https://aismediaclub.com";
+
+
+// =========================
+// AUTOMATIC GALLERY GENERATOR
+// =========================
 
 Object.entries(galleryImages).forEach(([sectionId, filenames]) => {
 
@@ -163,11 +169,14 @@ Object.entries(galleryImages).forEach(([sectionId, filenames]) => {
 
     const url = `${baseURL}/Section%20${sectionNumber}/${encodeURIComponent(filename)}`;
 
+    const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(filename);
+
+    const optimizedImageUrl = isVideo
+      ? url
+      : `${transformBase}/cdn-cgi/image/format=auto,quality=80/${url}`;
+
     const item = document.createElement("div");
     item.className = "media-item";
-
-    // CHECK FILE TYPE
-    const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(filename);
 
     if (isVideo) {
 
@@ -191,13 +200,13 @@ Object.entries(galleryImages).forEach(([sectionId, filenames]) => {
       // IMAGE FILES
       const link = document.createElement("a");
 
-      link.href = url;
+      link.href = optimizedImageUrl;
       link.className = "gallery-link";
       link.setAttribute("data-gallery", sectionId);
 
       const image = document.createElement("img");
 
-      image.src = url;
+      image.src = optimizedImageUrl;
       image.alt = `Section ${sectionNumber} image ${index + 1}`;
       image.loading = "lazy";
       image.decoding = "async";
