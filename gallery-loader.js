@@ -200,13 +200,13 @@ Object.entries(galleryImages).forEach(([sectionId, filenames]) => {
       // IMAGE FILES
       const link = document.createElement("a");
 
-      link.href = optimizedImageUrl;
+      link.href = url;
       link.className = "gallery-link";
       link.setAttribute("data-gallery", sectionId);
 
       const image = document.createElement("img");
 
-      image.src = optimizedImageUrl;
+      image.src = url;
       image.alt = `Section ${sectionNumber} image ${index + 1}`;
       image.loading = "lazy";
       image.decoding = "async";
