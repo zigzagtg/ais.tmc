@@ -1,4 +1,4 @@
-```css
+
 /* =========================
    BASIC RESET
 ========================= */
@@ -53,12 +53,7 @@ body {
   object-fit: cover;
 }
 
-.brand-text {
-  font-weight: 900;
-  font-size: 1.6rem;
-  color: #FFD54F;
-  margin-left: 8px;
-}
+.brand-text{font-weight:900;font-size:1.6rem;display:inline-block;letter-spacing:0.4px;background:linear-gradient(90deg,#0b72ff 0%,#FFD54F 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0.3px rgba(11,11,11,0.06)}
 
 /* =========================
    NAVIGATION
@@ -350,4 +345,3 @@ footer.site-footer p {
     font-size: 1rem;
   }
 }
-```
