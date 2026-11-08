@@ -1,0 +1,650 @@
+
+/* =========================================
+   T.M.C HOME PAGE
+========================================= */
+
+.home-page {
+    overflow-x: hidden;
+    background: #ffffff;
+}
+
+.home-page img,
+.home-page video {
+    max-width: 100%;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.home-page .header-inner {
+    position: relative;
+}
+
+.home-page .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+}
+
+.home-page .nav-toggle span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    margin: 0 auto;
+    background: #0b0b0b;
+    border-radius: 2px;
+}
+
+.home-page .nav-list a[aria-current="page"] {
+    font-weight: 800;
+}
+
+/* =========================================
+   SHARED HOME ELEMENTS
+========================================= */
+
+.home-page .section-padding {
+    padding: 95px 0;
+}
+
+.home-page .eyebrow {
+    display: inline-block;
+    margin-bottom: 17px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.home-page .dark-eyebrow {
+    color: #3279f3;
+}
+
+.home-page .section-heading h2 {
+    color: #172033;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.home-page .section-heading h2 span {
+    color: #3279f3;
+}
+
+.home-page .centered-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.home-page .section-description {
+    color: #687386;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.home-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.home-page .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+.home-page .btn-primary {
+    background: #0b72ff;
+    color: #ffffff;
+}
+
+.home-page .btn-outline {
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: transparent;
+}
+
+.home-page .btn-light {
+    background: #ffffff;
+    color: #0b55c4;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.home-hero {
+    position: relative;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    color: #ffffff;
+    background-image: url("images/acsetup1.jpg");
+    background-size: cover;
+    background-position: center;
+    isolation: isolate;
+}
+
+.home-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.78),
+        rgba(0, 0, 0, 0.48)
+    );
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.home-hero .eyebrow {
+    color: #ffffff;
+}
+
+.home-hero h1 {
+    max-width: 800px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.home-hero h1 span {
+    color: #FFD54F;
+}
+
+.home-hero-description {
+    max-width: 550px;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.home-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-bottom-label {
+    position: absolute;
+    right: 5%;
+    bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.hero-bottom-label span {
+    width: 30px;
+    height: 2px;
+    background: #FFD54F;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.home-intro {
+    background: #ffffff;
+}
+
+.home-page .intro-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 75px;
+}
+
+.home-page .intro-copy p {
+    color: #586174;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.home-page .text-link {
+    display: inline-block;
+    margin-top: 23px;
+    color: #3279f3;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-page .text-link span {
+    margin-left: 7px;
+}
+
+/* =========================================
+   ACTIVITIES
+========================================= */
+
+.home-activities {
+    background: #f5f7fb;
+}
+
+.home-page .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.home-page .activity-card {
+    position: relative;
+    min-height: 280px;
+    padding: 32px;
+    border: 1px solid #e8edf5;
+    border-radius: 12px;
+    background: #ffffff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-page .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(20, 45, 90, 0.09);
+}
+
+.home-page .activity-number {
+    color: #aab5c7;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.home-page .activity-icon {
+    margin: 27px 0 18px;
+    color: #3279f3;
+    font-size: 2.1rem;
+}
+
+.home-page .activity-card h3 {
+    margin-bottom: 12px;
+    color: #172033;
+    font-size: 1.3rem;
+}
+
+.home-page .activity-card p {
+    color: #687386;
+    line-height: 1.8;
+}
+
+/* =========================================
+   EXPLORE CARDS
+========================================= */
+
+.home-explore {
+    background: #ffffff;
+}
+
+.home-page .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.home-page .explore-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 280px;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.25s ease;
+}
+
+.home-page .explore-card:hover {
+    transform: translateY(-5px);
+}
+
+.home-page .explore-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.8)
+    );
+}
+
+.home-page .explore-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.home-page .explore-card-content p {
+    margin-bottom: 15px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.home-page .explore-card h3 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+.home-page .explore-card-content span {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.home-page .explore-gallery {
+    background-color: #174b9b;
+    background-image: linear-gradient(135deg, #174b9b, #3279f3);
+}
+
+.home-page .explore-events {
+    background-color: #172c50;
+    background-image: linear-gradient(135deg, #172c50, #315c91);
+}
+
+.home-page .explore-team {
+    background-color: #303b50;
+    background-image: linear-gradient(135deg, #303b50, #66758e);
+}
+
+/* =========================================
+   CAMERA TUTORIAL
+========================================= */
+
+.home-page .tutorial-section {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 85px 0;
+    border-radius: 0;
+    background: #f5f7fb;
+    box-shadow: none;
+}
+
+.home-page .tutorial-heading {
+    max-width: 800px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.home-page .tutorial-heading h2 {
+    padding: 0;
+    margin-bottom: 18px;
+    color: #172033;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.home-page .tutorial-heading > p:last-child {
+    color: #687386;
+    line-height: 1.8;
+}
+
+.home-page .tutorial-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 65px;
+}
+
+.home-page .tutorial-reverse .tutorial-copy {
+    order: 2;
+}
+
+.home-page .tutorial-reverse .tutorial-image {
+    order: 1;
+}
+
+.home-page .tutorial-copy h3,
+.home-page .tutorial-video h3 {
+    margin-bottom: 22px;
+    color: #172033;
+    font-size: 1.4rem;
+}
+
+.home-page .tutorial-list {
+    padding-left: 22px;
+    list-style: disc;
+}
+
+.home-page .tutorial-list li {
+    margin-bottom: 16px;
+    color: #586174;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.home-page .tutorial-list strong {
+    color: #172033;
+}
+
+.home-page .tutorial-image img {
+    display: block;
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.home-page .tutorial-video {
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-page .tutorial-video video {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: #111111;
+}
+
+/* =========================================
+   FINAL CALL TO ACTION
+========================================= */
+
+.home-cta {
+    position: relative;
+    padding: 95px 0;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    background: linear-gradient(120deg, #103d80, #3279f3);
+}
+
+.home-cta-content {
+    max-width: 750px;
+}
+
+.home-cta .eyebrow {
+    color: #FFD54F;
+}
+
+.home-cta h2 {
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.home-cta-content > p:not(.eyebrow) {
+    margin-bottom: 28px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.home-page .page-footer {
+    padding: 24px 0;
+    color: #ffffff;
+    background: rgba(50, 121, 243, 0.909);
+}
+
+.home-page .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.home-page .footer-brand {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.home-page .footer-content p {
+    color: #ffffff;
+    text-align: center;
+}
+
+.home-page .footer-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 800px) {
+
+    .home-page .nav-toggle {
+        display: inline-flex;
+    }
+
+    .home-page .site-nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        transition: max-height 220ms ease;
+    }
+
+    .home-page .site-nav.is-open {
+        max-height: 350px;
+    }
+
+    .home-page .nav-list {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .home-page .section-padding {
+        padding: 65px 0;
+    }
+
+    .home-page .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .home-page .activity-grid,
+    .home-page .explore-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page .activity-card {
+        min-height: auto;
+    }
+
+    .home-page .explore-card {
+        min-height: 230px;
+    }
+
+    .home-hero {
+        min-height: 75vh;
+    }
+
+    .home-hero h1 {
+        font-size: clamp(2.7rem, 10vw, 4rem);
+    }
+
+    .hero-bottom-label {
+        right: auto;
+        left: 5%;
+        font-size: 0.7rem;
+    }
+
+    .home-page .tutorial-section {
+        padding: 65px 0;
+    }
+
+    .home-page .tutorial-block {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .home-page .tutorial-reverse .tutorial-copy,
+    .home-page .tutorial-reverse .tutorial-image {
+        order: initial;
+    }
+
+    .home-page .tutorial-image img {
+        height: 250px;
+    }
+
+    .home-page .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .home-hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .home-hero-buttons .btn {
+        min-width: 155px;
+    }
+
+    .home-page .activity-card {
+        padding: 25px;
+    }
+
+    .home-page .explore-card {
+        min-height: 210px;
+    }
+
+    .home-page .tutorial-heading {
+        margin-bottom: 40px;
+    }
+}

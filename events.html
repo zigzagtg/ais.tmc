@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Events | The Media Club</title>
+    <meta name="description" content="Explore sports, school events, trips and activities covered by The Media Club at AIS.">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="events.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+
+        <a href="/home" class="brand" aria-label="Media Club home">
+            <img src="./images/logo.png" alt="Media Club logo" class="brand-logo" width="40" height="40">
+            <span class="brand-text">T.M.C</span>
+        </a>
+
+        <button class="nav-toggle"
+                aria-expanded="false"
+                aria-controls="site-navigation"
+                aria-label="Toggle navigation">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 6h18M3 12h18M3 18h18"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      fill="none">
+                </path>
+            </svg>
+        </button>
+
+        <nav id="site-navigation" class="site-nav">
+            <ul class="nav-list">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/events" aria-current="page">Events</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/team">The Team</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="events-page">
+
+    <!-- HERO -->
+    <section class="events-hero">
+        <div class="events-hero-overlay"></div>
+
+        <div class="events-container events-hero-content">
+
+            <span class="events-eyebrow">THE MEDIA CLUB · AIS</span>
+
+            <h1>Life at AIS,<br>through our lens.</h1>
+
+            <p>
+                From sporting competitions to school celebrations,
+                explore the moments and experiences captured by T.M.C.
+            </p>
+
+            <a href="#event-categories" class="events-button">
+                Explore Events <span>↓</span>
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- EVENT CATEGORIES -->
+    <section class="events-container category-section" id="event-categories">
+
+        <div class="section-heading">
+            <div>
+                <span class="events-eyebrow">EXPLORE</span>
+                <h2>Discover Our Events</h2>
+            </div>
+
+            <p>
+                Explore the activities, competitions and experiences
+                happening around our school.
+            </p>
+        </div>
+
+
+        <div class="category-grid">
+
+            <button class="category-card sports-category"
+                    type="button"
+                    data-category="sports"
+                    aria-expanded="false"
+                    aria-controls="sports">
+
+                <span class="category-number">01</span>
+
+                <span class="category-card-content">
+                    <span class="category-label">COMPETITIONS</span>
+                    <span class="category-title">Sports</span>
+
+                    <span class="category-description">
+                        The action, teamwork and unforgettable
+                        moments from AIS sports.
+                    </span>
+
+                    <span class="category-link">
+                        Explore Sports <span>↓</span>
+                    </span>
+                </span>
+            </button>
+
+
+            <button class="category-card school-category"
+                    type="button"
+                    data-category="school-events"
+                    aria-expanded="false"
+                    aria-controls="school-events">
+
+                <span class="category-number">02</span>
+
+                <span class="category-card-content">
+                    <span class="category-label">CAMPUS LIFE</span>
+                    <span class="category-title">School Events</span>
+
+                    <span class="category-description">
+                        Celebrations, ceremonies and special
+                        moments across our school.
+                    </span>
+
+                    <span class="category-link">
+                        Explore Events <span>↓</span>
+                    </span>
+                </span>
+            </button>
+
+
+            <button class="category-card trips-category"
+                    type="button"
+                    data-category="trips"
+                    aria-expanded="false"
+                    aria-controls="trips">
+
+                <span class="category-number">03</span>
+
+                <span class="category-card-content">
+                    <span class="category-label">EXPERIENCES</span>
+                    <span class="category-title">Trips & Excursions</span>
+
+                    <span class="category-description">
+                        Discover the places, people and experiences
+                        beyond the classroom.
+                    </span>
+
+                    <span class="category-link">
+                        Explore Trips <span>↓</span>
+                    </span>
+                </span>
+            </button>
+
+
+            <button class="category-card activities-category"
+                    type="button"
+                    data-category="other-activities"
+                    aria-expanded="false"
+                    aria-controls="other-activities">
+
+                <span class="category-number">04</span>
+
+                <span class="category-card-content">
+                    <span class="category-label">BEYOND THE CLASSROOM</span>
+                    <span class="category-title">Other Activities</span>
+
+                    <span class="category-description">
+                        Clubs, projects, competitions and
+                        student activities.
+                    </span>
+
+                    <span class="category-link">
+                        Explore Activities <span>↓</span>
+                    </span>
+                </span>
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- SPORTS -->
+    <section class="expandable-section sports-section"
+             id="sports"
+             hidden>
+
+        <div class="events-container">
+
+            <div class="section-heading">
+                <div>
+                    <span class="events-eyebrow">ON THE FIELD</span>
+                    <h2>Sports at AIS</h2>
+                </div>
+
+                <p>
+                    Select a sport to explore its photographs
+                    and video highlights.
+                </p>
+            </div>
+
+
+            <!-- SPORTS FILTERS -->
+            <div class="sports-filters" role="group" aria-label="Filter sports">
+
+                <button class="sport-filter active" data-filter="all" aria-pressed="true">
+                    All Sports
+                </button>
+
+                <button class="sport-filter" data-filter="football" aria-pressed="false">
+                    Football
+                </button>
+
+                <button class="sport-filter" data-filter="basketball" aria-pressed="false">
+                    Basketball
+                </button>
+
+                <button class="sport-filter" data-filter="tennis" aria-pressed="false">
+                    Tennis
+                </button>
+
+                <button class="sport-filter" data-filter="handball" aria-pressed="false">
+                    Handball
+                </button>
+
+                <button class="sport-filter" data-filter="table-tennis" aria-pressed="false">
+                    Table Tennis
+                </button>
+
+                <button class="sport-filter" data-filter="hockey" aria-pressed="false">
+                    Hockey
+                </button>
+
+                <button class="sport-filter" data-filter="swimming" aria-pressed="false">
+                    Swimming
+                </button>
+
+            </div>
+
+
+            <!-- SPORTS GRID -->
+            <div class="sports-grid">
+
+                <button class="sport-card" type="button" data-sport="football">
+                    <span class="sport-card-visual football-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">⚽</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">ON THE PITCH</span>
+                        <span class="sport-card-title">Football</span>
+                        <span class="sport-card-description">Matches, goals and team moments.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="basketball">
+                    <span class="sport-card-visual basketball-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🏀</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">ON THE COURT</span>
+                        <span class="sport-card-title">Basketball</span>
+                        <span class="sport-card-description">Fast plays and competitive action.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="tennis">
+                    <span class="sport-card-visual tennis-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🎾</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">ON THE COURT</span>
+                        <span class="sport-card-title">Tennis</span>
+                        <span class="sport-card-description">Rallies, matches and highlights.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="handball">
+                    <span class="sport-card-visual handball-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🤾</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">IN ACTION</span>
+                        <span class="sport-card-title">Handball</span>
+                        <span class="sport-card-description">Teamwork, speed and competition.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="table-tennis">
+                    <span class="sport-card-visual table-tennis-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🏓</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">AT THE TABLE</span>
+                        <span class="sport-card-title">Table Tennis</span>
+                        <span class="sport-card-description">Quick rallies and sharp reactions.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="hockey">
+                    <span class="sport-card-visual hockey-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🏑</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">ON THE FIELD</span>
+                        <span class="sport-card-title">Hockey</span>
+                        <span class="sport-card-description">Skills, teamwork and match highlights.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+
+                <button class="sport-card" type="button" data-sport="swimming">
+                    <span class="sport-card-visual swimming-visual">
+                        <span class="sport-card-tag">SPORTS</span>
+                        <span class="sport-symbol">🏊</span>
+                    </span>
+                    <span class="sport-card-info">
+                        <span class="sport-card-category">IN THE POOL</span>
+                        <span class="sport-card-title">Swimming</span>
+                        <span class="sport-card-description">Races, achievements and team moments.</span>
+                        <span class="sport-open-link">View gallery ↗</span>
+                    </span>
+                </button>
+
+            </div>
+
+            <p class="sports-empty" hidden>No sports found.</p>
+
+        </div>
+    </section>
+
+
+    <!-- FULL-SCREEN SPORT GALLERY -->
+    <section class="sport-gallery-view"
+             id="sport-gallery-view"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="sport-gallery-title"
+             hidden>
+
+        <div class="sport-gallery-topbar">
+
+            <button class="gallery-back-button" id="gallery-back" type="button">
+                <span aria-hidden="true">←</span>
+                Back to Sports
+            </button>
+
+            <span class="gallery-brand-label">T.M.C · AIS</span>
+
+        </div>
+
+        <div class="sport-gallery-content">
+
+            <div class="sport-gallery-heading">
+                <span class="events-eyebrow">SPORTS COLLECTION</span>
+                <h2 id="sport-gallery-title">Football</h2>
+                <p id="sport-gallery-description"></p>
+            </div>
+
+            <div class="sport-gallery-grid" id="sport-gallery-grid">
+
+                <!-- Media items are inserted here by events.js -->
+
+            </div>
+
+            <p class="gallery-empty-message" id="gallery-empty-message" hidden>
+                Photographs and videos for this sport will appear here soon.
+            </p>
+
+        </div>
+
+        <div class="sport-gallery-footer">
+            <span>THE MEDIA CLUB</span>
+            <span>Capturing life at AIS.</span>
+        </div>
+
+    </section>
+
+
+    <!-- SCHOOL EVENTS -->
+    <section class="expandable-section other-event-section" id="school-events" hidden>
+        <div class="events-container">
+            <span class="events-eyebrow">CAMPUS LIFE</span>
+            <h2>School Events</h2>
+
+            <p class="other-event-description">
+                From important school ceremonies to celebrations
+                and student activities, every event has a story.
+            </p>
+
+            <div class="coming-soon-panel">
+                <span>📸</span>
+                <div>
+                    <h3>School memories coming soon</h3>
+                    <p>Photographs and videos from school events will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TRIPS -->
+    <section class="expandable-section other-event-section" id="trips" hidden>
+        <div class="events-container">
+            <span class="events-eyebrow">NEW EXPERIENCES</span>
+            <h2>Trips & Excursions</h2>
+
+            <p class="other-event-description">
+                A collection of experiences, discoveries and
+                memories from outside the classroom.
+            </p>
+
+            <div class="coming-soon-panel">
+                <span>🌍</span>
+                <div>
+                    <h3>Trip highlights coming soon</h3>
+                    <p>Photographs and videos from school trips will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- OTHER ACTIVITIES -->
+    <section class="expandable-section other-event-section" id="other-activities" hidden>
+        <div class="events-container">
+            <span class="events-eyebrow">STUDENT LIFE</span>
+            <h2>Other Activities</h2>
+
+            <p class="other-event-description">
+                Explore the projects, clubs and activities
+                shaping student life at AIS.
+            </p>
+
+            <div class="coming-soon-panel">
+                <span>🎬</span>
+                <div>
+                    <h3>More activities coming soon</h3>
+                    <p>Club projects, competitions and other student activities will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="page-footer">
+    <div class="container">
+        <p>&copy; 2026 The Media Club. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<script src="events.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+</html>

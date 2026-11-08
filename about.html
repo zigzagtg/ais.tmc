@@ -1,131 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Media Club</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <meta name="description" content="Media Club — creative media projects, galleries, and events.">
-    <meta name="keywords" content="media, gallery, events, film, photography">
-    <meta name="author" content="Media Club">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about The Media Club at Akosombo International School.">
 
-    <link rel="canonical" href="https://example.com/">
-    
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <title>About Us | The Media Club</title>
 
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
 </head>
-<body>
-  <script src="preload-gallery.js"></script>
-     <!-- Header (Navbar) -->
-<header class="site-header">
-    <div class="container header-inner">
-        <a href="/home" class="brand" aria-label="Media Club home">
-            <img src="./images/logo.png" alt="Media Club logo" class="brand-logo" width="40" height="40">
-            <span class="brand-text">TMC</span>
-        </a>
-  
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">
-            <span class="sr-only">Menu</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" fill="none"></path>
-            </svg>
-        </button>
-  
-        <nav id="site-navigation" class="site-nav" role="navigation">
-            <ul class="nav-list">
-                <li><a href= "/home">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/gallery">Gallery</a></li>
-                <li><a href="/team">The Team</a></li>
-            </ul>
-        </nav>
-    </div>
-  </header>
-  
 
-   <!-- ABOUT HEADER -->
-   <section class="about-header">
-    <div class="header-inner">
-      <h1>About Us</h1>
-      <p>Capturing stories. Sharing moments. Representing AIS</p>
-    </div>
-  </section>
+<body class="about-page">
 
-  <!-- MAIN SECTIONS -->
-  <main class="about-content">
+    <script src="preload-gallery.js"></script>
 
-    <section class="intro-section">
-      <p>
-        Media Club is a student-led club at Akosombo International School that
-        focuses on storytelling through photography and journalism. We document
-        school life, highlight student achievements, and bring events to life
-        through visual and written media.
-      </p>
-    </section>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
 
-    <section class="mission-section">
-      <h2>What We Do</h2>
-      <p>
-        Members of Media Club learn the fundamentals of photography, journalism,
-        and digital media. We cover school events, interview students and staff,
-        and create engaging content that represents the vibrant AIS community
-        both on campus and online.
-      </p>
-    </section>
+            <a href="/" class="brand">
+                <img src="images/logo.png" alt="TMC Logo" class="brand-logo">
+                <span class="brand-text">T.M.C</span>
+            </a>
 
-    <section class="vision-section">
-      <h2>Vision</h2>
-      <p>
-        Our vision is to be the voice and lens of Akosombo International School. We aim to creatively capture, document, and share the life of the school through photography and journalism, while developing students’ media skills and promoting AIS and its activities with authenticity, responsibility, and pride.
+            <nav class="site-nav" id="site-navigation">
+                <ul class="nav-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li><a href="/gallery">Gallery</a></li>                
+                    <li><a href="/team">The Team</a></li>
+                </ul>
+            </nav>
 
-      </p>
-    </section>
+            <button class="nav-toggle"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="site-navigation">
 
-  </main>
+                <svg viewBox="0 0 24 24" width="24" height="24"
+                     fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round">
+                    <path d="M3 6h18M3 12h18M3 18h18"></path>
+                </svg>
+            </button>
 
-  <!-- VIDEO AT BOTTOM -->
-   <!-- autoplay; -->
-  <section class="video-section">
-    <div class="video-frame">
-      <iframe
-        src="./images/about.mp4"
-        title="About Us Video"
-        frameborder="0"
-        allow="accelerometer;  encrypted-media; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+        </div>
+    </header>
 
+    <main>
 
-  <script>
-        (function(){
-            const btn = document.querySelector('.nav-toggle');
-            const nav = document.getElementById('site-navigation');
-            if (!btn || !nav) return;
-            btn.addEventListener('click', function(){
-                const expanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', String(!expanded));
-                nav.classList.toggle('is-open');
-            });
-        })();
+        <!-- Hero -->
+        <section class="about-header">
+            <div class="about-hero-content">
+                <span class="about-eyebrow">GET TO KNOW US</span>
+                <h1>About Us</h1>
+                <p>Capturing stories. Sharing moments. Representing AIS</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section class="about-content">
+
+            <div class="about-intro-layout">
+                <div>
+                    <span class="about-section-label">WHO WE ARE</span>
+                    <h2>Every story deserves to be told.</h2>
+                </div>
+
+                <div class="intro-section">
+                    <p>
+                        Media Club is a student-led club at Akosombo
+                        International School that focuses on storytelling
+                        through photography and journalism. We document
+                        school life, highlight student achievements, and
+                        bring events to life through visual and written media.
+                    </p>
+                </div>
+            </div>
+
+            <!-- What We Do -->
+            <section class="mission-section about-info-section">
+                <span class="about-section-label">OUR ACTIVITIES</span>
+                <h2>What We Do</h2>
+
+                <p>
+                    Members of Media Club learn the fundamentals of
+                    photography, journalism, and digital media. We cover
+                    school events, interview students and staff, and create
+                    engaging content that represents the vibrant AIS
+                    community both on campus and online.
+                </p>
+            </section>
+
+            <!-- Vision -->
+            <section class="vision-section about-info-section">
+                <span class="about-section-label">OUR DIRECTION</span>
+                <h2>Vision</h2>
+
+                <p>
+                    Our vision is to be the voice and lens of Akosombo
+                    International School. We aim to creatively capture,
+                    document, and share the life of the school through
+                    photography and journalism, while developing students’
+                    media skills and promoting AIS and its activities with
+                    authenticity, responsibility, and pride.
+                </p>
+            </section>
+
+            <!-- Additional information -->
+            <section class="about-values-section">
+                <div>
+                    <span class="about-section-label">WHAT GUIDES US</span>
+                    <h2>Our Approach</h2>
+                </div>
+
+                <div class="about-values-grid">
+
+                    <article>
+                        <span>01</span>
+                        <h3>Creativity</h3>
+                        <p>
+                            We use photography and storytelling to present
+                            school life in engaging ways.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>02</span>
+                        <h3>Responsibility</h3>
+                        <p>
+                            We aim to represent people, events and the school
+                            community with care and accuracy.
+                        </p>
+                    </article>
+
+                    <article>
+                        <span>03</span>
+                        <h3>Growth</h3>
+                        <p>
+                            We develop our skills through learning,
+                            practice and collaboration.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+        </section>
+
+        <!-- Video -->
+        <section class="video-section">
+            <div class="video-section-inner">
+
+                <div class="video-section-heading">
+                    <span class="about-section-label">SEE US IN ACTION</span>
+                    <h2>Life Through Our Lens</h2>
+                    <p>
+                        A glimpse into the work and experiences of
+                        The Media Club.
+                    </p>
+                </div>
+
+                <div class="video-frame">
+                    <video controls preload="metadata" playsinline>
+                        <source src="images/about.mp4" type="video/mp4">
+                        Your browser does not support the video element.
+                    </video>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="about-final-cta">
+            <span class="about-section-label">EXPLORE MORE</span>
+            <h2>See what we're creating.</h2>
+            <p>
+                Discover the photographs, events and people
+                behind The Media Club.
+            </p>
+
+            <div class="about-cta-links">
+                <a href="/gallery" class="btn btn-primary">Explore Gallery</a>
+                <a href="/team" class="btn btn-primary">Meet the Team</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 The Media Club. All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector(".nav-toggle");
+        const navigation = document.querySelector("#site-navigation");
+
+        navToggle.addEventListener("click", () => {
+            const isOpen = navigation.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen);
+        });
     </script>
 
-  
-  <footer class="page-footer">
-    © 2026 The Media Club. All Rights Reserved
-  </footer>
-
-  <script defer src="/_vercel/insights/script.js"></script>
-
+    <script>
+        window.va = window.va || function () {
+            (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
 </html>

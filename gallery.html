@@ -7,36 +7,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Gallery | The Media Club</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-  
 
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link rel="icon" type="image/png" href="/images/favicon.png">
 
-<link rel="stylesheet" href="style.css">
+  <!-- Shared site stylesheet -->
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Gallery CSS -->
+  <!-- Gallery stylesheet -->
   <link rel="stylesheet" href="gallery.css">
 
-  <!-- GLightbox CSS -->
+  <!-- GLightbox -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
   >
 </head>
 
-<body>
+<body class="gallery-page">
 
   <!-- HEADER -->
   <header class="site-header">
-    <div class="header-inner">
+    <div class="container header-inner">
 
       <a href="index.html" class="brand">
-        <img src="/images/logo.png" alt="TMC Logo" class="brand-logo">
-        <span class="brand-text">TMC</span>
+        <img
+          src="/images/logo.png"
+          alt="TMC Logo"
+          class="brand-logo"
+        >
+        <span class="brand-text">T.M.C</span>
       </a>
 
       <button
@@ -44,6 +43,7 @@
         aria-label="Toggle navigation"
         aria-expanded="false"
         aria-controls="main-navigation"
+        type="button"
       >
         <svg
           width="24"
@@ -52,6 +52,7 @@
           fill="none"
           stroke="currentColor"
           stroke-width="2"
+          stroke-linecap="round"
         >
           <path d="M3 6h18M3 12h18M3 18h18"/>
         </svg>
@@ -61,7 +62,8 @@
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>        
           <li><a href="team.html">The Team</a></li>
         </ul>
       </nav>
@@ -70,12 +72,17 @@
   </header>
 
   <!-- GALLERY INTRODUCTION -->
-  <section class="gallery-header">
-    <h2>From Our Gallery</h2>
-    <p>
-      Explore our collection of memories, achievements,
-      events and experiences at The Media Club.
-    </p>
+  <section class="gallery-hero">
+    <div class="gallery-hero-content">
+      <span class="gallery-eyebrow">THE MEDIA CLUB</span>
+
+      <h1>From Our Gallery</h1>
+
+      <p>
+        Explore our collection of memories, achievements,
+        events and experiences at The Media Club.
+      </p>
+    </div>
   </section>
 
   <!-- GALLERY CATEGORIES -->
@@ -137,7 +144,21 @@
 
     navToggle.addEventListener("click", () => {
       const isOpen = siteNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", isOpen);
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.querySelectorAll(".site-nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        siteNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        siteNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
     });
   </script>
 
@@ -149,6 +170,14 @@
 
   <!-- GALLERY LOADER -->
   <script src="gallery-loader.js"></script>
+
+  <!-- CLOUDFLARE ANALYTICS -->
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"version":"2024.11.0","token":"e9dbefc492204a53b4edb2c205773644","r":1,"spa":2}'
+    crossorigin="anonymous"
+  ></script>
 
 </body>
 </html>

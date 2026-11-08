@@ -5,116 +5,284 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Media Club</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
     <meta name="description" content="Media Club — creative media projects, galleries, and events.">
     <meta name="keywords" content="media, gallery, events, film, photography">
     <meta name="author" content="Media Club">
     <meta name="theme-color" content="#0a0a0a">
-
     <link rel="canonical" href="https://example.com/">
-   
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
 </head>
 
-<body>
-    <script src="preload-gallery.js"></script>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a href="/home" class="brand" aria-label="Media Club home">
-                <img src="./images/logo.png" alt="Media Club logo" class="brand-logo" width="40" height="40">
-                <span class="brand-text">T.M.C</span>
-            </a>
+<body class="home-page">
 
-            <button class="nav-toggle" aria-expanded="false" aria-controls="site-navigation">
-                <span class="sr-only">Menu</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-                </svg>
-            </button>
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="/home" class="brand" aria-label="The Media Club home">
+            <img src="./images/logo.png" alt="The Media Club logo" class="brand-logo">
+            <span class="brand-text">T.M.C</span>
+        </a>
 
-            <nav id="site-navigation" class="site-nav" role="navigation">
-                <ul class="nav-list">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/gallery">Gallery</a></li>
-                    <li><a href="/team">The Team</a></li>
-                </ul>   
-            </nav>
+        <button class="nav-toggle" type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" id="main-navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <li><a href="/home" aria-current="page">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/gallery">Gallery</a></li>                
+                <li><a href="/team">The Team</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="home-hero">
+        <div class="home-hero-overlay"></div>
+
+        <div class="container home-hero-content">
+            <p class="eyebrow">AKOSOMBO INTERNATIONAL SCHOOL</p>
+            <h1>Creative media, <span>bold ideas</span></h1>
+            <p class="home-hero-description">
+                Showcasing projects, galleries and events from Media Club.
+            </p>
+
+            <div class="home-hero-buttons">
+                <a href="/about" class="btn btn-primary">Who We Are</a>
+                <a href="/team" class="btn btn-outline">Meet the Team</a>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <section class="hero">
-                <div class="hero-overlay" aria-hidden="true"></div>
-            <div class="container hero-inner">
-                <h1 class="hero-title">Creative media, bold ideas</h1>
-                <p class="hero-sub">Showcasing projects, galleries and events from Media Club.</p>
-                <p class="hero-ctas">
-                    <a href="/about" class="btn btn-primary">Who We Are</a>
-                    <a href="/team" class="btn btn-primary">Meet the Team</a>
+        <div class="hero-bottom-label">
+            <span></span>
+            Creativity. Storytelling. Community.
+        </div>
+    </section>
+
+    <section class="home-intro section-padding">
+        <div class="container intro-grid">
+            <div class="section-heading">
+                <p class="eyebrow dark-eyebrow">WELCOME TO T.M.C</p>
+                <h2>Every moment has a <span>story.</span></h2>
+            </div>
+
+            <div class="intro-copy">
+                <p>
+                    Media Club is a student-led club at Akosombo International School
+                    that focuses on storytelling through photography and journalism.
+                    We document school life, highlight student achievements, and bring
+                    events to life through visual and written media.
+                </p>
+                <a href="/about" class="text-link">
+                    Learn more about us <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-activities section-padding">
+        <div class="container">
+            <div class="section-heading centered-heading">
+                <p class="eyebrow dark-eyebrow">WHAT WE DO</p>
+                <h2>Media with a <span>purpose.</span></h2>
+                <p class="section-description">
+                    We use different forms of media to capture school life and share
+                    the stories of the AIS community.
                 </p>
             </div>
-        </section>
-    </main>
 
+            <div class="activity-grid">
+                <article class="activity-card">
+                    <div class="activity-number">01</div>
+                    <div class="activity-icon" aria-hidden="true">◉</div>
+                    <h3>Photography</h3>
+                    <p>
+                        We capture important moments, school activities and student
+                        achievements through photography.
+                    </p>
+                </article>
 
-    <div class="tutorial-section">
-        <h2>Basic Camera Usage Tutorial</h2>
-        <div class="content">
-          <p>Welcome to our quick tutorial on using a camera! Whether you're using a DSLR, a smartphone, or a point-and-shoot, these basic tips will help you get started on taking amazing photos.</p>
-    
-          <center><h3>1. Setting Up Your Camera</h3>
-        <img src="images/acsetup4.jpg" alt="Camera Setup" width="325" height="200">
-        <img src="images/acsetup5.jpg" alt="Camera Setup" width="325" height="200">
-        </center>
-            
+                <article class="activity-card">
+                    <div class="activity-number">02</div>
+                    <div class="activity-icon" aria-hidden="true">✎</div>
+                    <h3>Journalism</h3>
+                    <p>
+                        We tell stories, conduct interviews and share information
+                        about the people and activities within AIS.
+                    </p>
+                </article>
 
-          <ul class="steps">
-            <li><strong>Charge your battery:</strong> Make sure your camera is ready to go with a full charge.</li>
-            <li><strong>Insert the memory card:</strong> Don’t forget to insert a compatible memory card to save your photos!</li>
-            <li><strong>Choose your shooting mode:</strong> Set your camera to the mode that best suits your shoot, like Auto or Manual.</li>
-          </ul>
-
-          <center><h3>2. Photography Tips</h3>
-        <video src="images/acsetup7.mp4" alt="Camera Setup" width="320" height="200" autoplay muted controls loop></video>
-        </center>
-            
-          <ul class="steps">
-            <li><strong>Lighting:</strong> Natural light is your friend! Try to shoot in well-lit areas or during golden hour for the best results.</li>
-            <li><strong>Stabilize the camera:</strong> Keep your hands steady or use a tripod to prevent blurry photos.</li>
-            <li><strong>Focus:</strong> Make sure your subject is in focus, especially if you’re using manual focus on a DSLR.</li>
-          </ul>
+                <article class="activity-card">
+                    <div class="activity-number">03</div>
+                    <div class="activity-icon" aria-hidden="true">▣</div>
+                    <h3>Event Coverage</h3>
+                    <p>
+                        We document school events and create media that preserves
+                        memories of the AIS community.
+                    </p>
+                </article>
+            </div>
         </div>
-      </div>
-    
+    </section>
 
-    <script>
-        (function(){
-            const btn = document.querySelector('.nav-toggle');
-            const nav = document.getElementById('site-navigation');
-            if (!btn || !nav) return;
-            btn.addEventListener('click', function(){
-                const expanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', String(!expanded));
-                nav.classList.toggle('is-open');
-            });
-        })();
-    </script>
+    <section class="home-explore section-padding">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow dark-eyebrow">EXPLORE T.M.C</p>
+                <h2>Take a closer <span>look.</span></h2>
+            </div>
 
- <!-- Footer -->
- <footer class="page-footer">
-  <div class="container">
-      <p>&copy; 2026 The Media Club. All rights reserved.</p>
+            <div class="explore-grid">
+                <a href="/gallery" class="explore-card explore-gallery">
+                    <div class="explore-card-content">
+                        <p>01 / OUR WORK</p>
+                        <h3>The Gallery</h3>
+                        <span>Explore our photographs and videos ↗</span>
+                    </div>
+                </a>
 
-  </div>
+                <a href="/events" class="explore-card explore-events">
+                    <div class="explore-card-content">
+                        <p>02 / SCHOOL LIFE</p>
+                        <h3>Events</h3>
+                        <span>See what is happening at AIS ↗</span>
+                    </div>
+                </a>
+
+                <a href="/team" class="explore-card explore-team">
+                    <div class="explore-card-content">
+                        <p>03 / OUR PEOPLE</p>
+                        <h3>The Team</h3>
+                        <span>Meet the people behind the work ↗</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="tutorial-section">
+        <div class="container">
+            <div class="tutorial-heading">
+                <p class="eyebrow dark-eyebrow">LEARN WITH T.M.C</p>
+                <h2>Basic Camera Usage Tutorial</h2>
+                <p>
+                    Welcome to our quick tutorial on using a camera! Whether you're
+                    using a DSLR, a smartphone, or a point-and-shoot, these basic tips
+                    will help you get started on taking amazing photos.
+                </p>
+            </div>
+
+            <div class="tutorial-block">
+                <div class="tutorial-copy">
+                    <h3>1. Setting Up Your Camera</h3>
+                    <ul class="tutorial-list">
+                        <li><strong>Charge your battery:</strong> Make sure your camera is ready to go with a full charge.</li>
+                        <li><strong>Insert the memory card:</strong> Don’t forget to insert a compatible memory card to save your photos!</li>
+                        <li><strong>Choose your shooting mode:</strong> Set your camera to the mode that best suits your shoot, like Auto or Manual.</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-image">
+                    <img src="images/acsetup4.jpg"
+                         alt="Camera equipment prepared for a photography session"
+                         loading="lazy">
+                </div>
+            </div>
+
+            <div class="tutorial-block tutorial-reverse">
+                <div class="tutorial-copy">
+                    <h3>2. Photography Tips</h3>
+                    <ul class="tutorial-list">
+                        <li><strong>Lighting:</strong> Natural light is your friend! Try to shoot in well-lit areas or during golden hour for the best results.</li>
+                        <li><strong>Stabilize the camera:</strong> Keep your hands steady or use a tripod to prevent blurry photos.</li>
+                        <li><strong>Focus:</strong> Make sure your subject is in focus, especially if you’re using manual focus on a DSLR.</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-image">
+                    <img src="images/acsetup5.jpg"
+                         alt="Photography setup"
+                         loading="lazy">
+                </div>
+            </div>
+
+            <div class="tutorial-video">
+                <h3>Watch the Tutorial</h3>
+                <video controls preload="metadata" playsinline>
+                    <source src="images/acsetup7.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-cta">
+        <div class="container home-cta-content">
+            <p class="eyebrow">THE MEDIA CLUB · AIS</p>
+            <h2>Stories worth capturing.</h2>
+            <p>
+                Discover the people, projects and moments that make our school
+                community unique.
+            </p>
+            <a href="/gallery" class="btn btn-light">Explore Our Gallery</a>
+        </div>
+    </section>
+</main>
+
+<footer class="page-footer">
+    <div class="container footer-content">
+        <a href="/home" class="footer-brand">T.M.C</a>
+        <p>© 2026 The Media Club. All Rights Reserved</p>
+        <a href="/about" class="footer-link">About the Club</a>
+    </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script defer src="/_vercel/insights/script.js"></script>
+
+<script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const siteNav = document.querySelector(".site-nav");
+
+    if (navToggle && siteNav) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = siteNav.classList.toggle("is-open");
+
+            navToggle.setAttribute("aria-expanded", String(isOpen));
+            navToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+        });
+
+        siteNav.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                siteNav.classList.remove("is-open");
+                navToggle.setAttribute("aria-expanded", "false");
+                navToggle.setAttribute("aria-label", "Open navigation menu");
+            });
+        });
+    }
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) {
+            siteNav?.classList.remove("is-open");
+            navToggle?.setAttribute("aria-expanded", "false");
+        }
+    });
+</script>
+
+<script src="/_vercel/insights/script.js"></script>
 </body>
 </html>
