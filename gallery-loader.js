@@ -1,4 +1,3 @@
-javascript
 const galleryImages = {
   // SECTION 1
   sec1: [
